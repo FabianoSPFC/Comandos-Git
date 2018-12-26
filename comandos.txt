@@ -1,0 +1,78 @@
+git clone + hhtps: -> Clona o repositorio para sua máquina
+git tag -> informa quantas versões existem do seu documento 
+git checkout + versão -> Altera a versão do seu documento 
+git diff -> verifca o que foi altera entre uma versão e outra
+git blame -> Mostra as alterações feitas linha a linha de uma versão para outra	
+git init -> Diz que agora essa pasta é um repositório do git
+git ls-files -> Verifica quais arquivos o git está controlando
+git status -> Verfica o estado atual do repositório	
+git add + arquivo-> informa ao git que é para ele monitorar o arquivo escolhido
+git commit -m "Mensagem" -> gravar alterações no repositório
+
+git add -i -> Facilita você fazer os git's, como commit, status etc
+git commit -a -m "Mensagem" -> inclui imediatamente no commit todos os arquivos modificados ou removidos! Porém, ela não adiciona os arquivos novos
+git log -> histórico de commits feito no repositório
+git whatchanged -> além de quando, podemos ver também quais arquivos foram aletrados 
+git whatchanged -p -> Mostra o que foi alterado em cada commit
+git remote -> indica quais repositórios remotos o repositório local tem 
+git remote add + nome ( geralente usa-se origin) + url -> adiciona um novo repositório remoto 
+git push + nome do repositorio remoto + master -> mandar as alterações para o repositorio remoto 
+
+Seqência de Passos para alterar um arquivo ou repositório:
+1: git status
+2:git add + arquivo
+3:git commit -m "Mensagem"
+4:git push + nome do repositório + master
+
+
+branch -> Branch serve para desenvolver algo especifico no repositório para depois integrar na branch master do projeto
+git branch -> Verifica quais as branch existentes no repositório
+git branch -r -> Informa as branch remotas
+git branch + nome da nova branch -> Criar uma nova Branch 
+git branch -t + ( nome da nova branch ) origin/(nome da branch que vai trazer ) -> Cria a branch trazendo as informações da branch remota escolhida
+git branch -b -> Executa dos dois comandos em sequência, criando e já alterando o espaço de trabalho para a nova branch.
+git branch -d -> Este comando remove uma branch, porém somente se ela estiver sincronizada com outra. Senão, é necessário forçar com a opção -D
+git branch -a ->Esta opção mostra todas as branches, locais e remotas!
+git fetch origin -> Este comando verifica todas as atualizações que foram realizadas no repositório de atalho origin.
+
+git checkout + nome da branch -> Para ativar a branch que deseja trabalhar 
+git pull -> Tras as informações do repositório para a máquina de trabalho
+git push -u origin + nome -> diz pro git que esse nome que está na maquina deve ser igual branch remota
+git merge -> transfere os arquivos de uma brench para outra 
+git rebase + base da branch + branch para atualizar -> atualiza uma branch com base em outra
+
+git mergetool --tool-help -> mostra no console uma lista de programas possíveis de ser utilizados
+git reset HEAD + ( nome do arquivo )-> muda o estado de um arquivo 
+git checkout + nome do qrquivo -> remove as alterações feitas até a última atualização
+git reset + "código" -> elimina o commit feito deixando como último código commitado, o código escolhido
+git reset --hard -> Com este comando, as alterações são removidas do histórico local de commits e também tanto do index quanto do working directory, permanentemente.
+fit reset --soft -> Com este comando, as alterações são removidas do histórico local de commits, mas não são removidas do index.
+git revert + "código" -> desfaz as alterações que um commit antigo fez
+git stash -> guarda as informações que ainda não foram commitadas 
+git stash list -> verifica se  ja tem algo dentro do stash
+git stash pop -> retoma o ultimo cara que estava na lista do stash
+git stash apply + número do stash  -> retoma o estado de onde estava parado
+git stash drop -> apaga o stash 
+
+git bissec start -> inicia uma filtragem de commits 
+git bissec bad HEAD -> Informa o commit ruim 
+git bissec good + ( endereço do commit bom ) -> A partir de qual commit bom ele vai filtrar
+"Você responde git bissec bad ( ruim ) ou git bissec good ( bom ) para cada commit filtrado que ele te mandar
+
+vim ~/.gitconfig
+[alias]
+dar apelidos para comandos do git, exemplo: st = status
+pode fazer varios comandos num unico apelido. usamos : exemplo = !git add && git commit -m && git push && .....
+precisamos colocar a ! na frente para mostrar que é um comando git 
+
+git log --pretty=oneline -> ver um commit por linha
+git log --pretty=short -> igual ao padrão, mas não mostra a data do commit
+git log --pretty=fullm -> mostra todas as informações 
+git log -p -> mostra quais arquivos foram alterados
+git log --stati -> não mostra com muitos detalhes, apenas mostra os arquivos modificados
+git log --graph -> mostra graficamente o caminho que os repositótios foram seguindo
+
+git fetch + nome de onde quer trazer -> trazer as alterações do repositório remoto sem coloca-las no nosso repositório
+git diff + usuario/local de onde quer pegar -> ver as diferenças dos nossos commits com os commits do usuario que vamos pegar 
+
+git cherry-pick + hash -> só vai levar pra branch aquele commit da hash escolhida
